@@ -9,14 +9,12 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    let screenWidth = UIScreen.mainScreen().bounds.size.width
+    let screenHeight = UIScreen.mainScreen().bounds.size.height
+    
+    
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!";
-        myLabel.fontSize = 65;
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
-        self.addChild(myLabel)
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -25,7 +23,16 @@ class GameScene: SKScene {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
             
+            
+            
             let sprite = SKSpriteNode(imageNamed:"Spaceship")
+            
+            enumerateChildNodesWithName("asteriodNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
+                let safeNode = aNode as SKSpriteNode
+                safeNode.physicsBody?.velocity.dx = 110
+                safeNode.physicsBody?.velocity.dy = 220
+            })
+            
             
             sprite.xScale = 0.5
             sprite.yScale = 0.5
@@ -40,6 +47,13 @@ class GameScene: SKScene {
     }
    
     override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
-    }
+        enumerateChildNodesWithName("asteriodNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
+            if (aNode.position.y < 10) {aNode.position.y = self.screenHeight - 10}
+            if (aNode.position.y > (self.screenHeight - 10)) {aNode.position.y = 10}
+            if (aNode.position.x < 10) {aNode.position.y = self.screenWidth - 10}
+            if (aNode.position.x > (self.screenWidth - 10)) {aNode.position.x = 10}
+            
+        })
 }
+}
+
