@@ -12,6 +12,11 @@ class GameScene: SKScene {
     let screenWidth = UIScreen.mainScreen().bounds.size.width
     let screenHeight = UIScreen.mainScreen().bounds.size.height
     
+    func randomCGFloat(min: CGFloat, max: CGFloat)->CGFloat{
+        return CGFloat(arc4random()) % max - min
+    }
+    
+    
     
     override func didMoveToView(view: SKView) {
         
@@ -21,39 +26,26 @@ class GameScene: SKScene {
         /* Called when a touch begins */
         
         for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            
-            
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
+            //let location = touch.locationInNode(self)
+        }
+        
             enumerateChildNodesWithName("asteriodNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
                 let safeNode = aNode as SKSpriteNode
-                safeNode.physicsBody?.velocity.dx = 110
-                safeNode.physicsBody?.velocity.dy = 220
+                safeNode.physicsBody?.velocity.dx = self.randomCGFloat(0.0, max: 100)
+                safeNode.physicsBody?.velocity.dy = self.randomCGFloat(0.0, max: 100)
             })
             
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
+        
     }
-   
+    func checkIfHeadingOffscreen(aNode: SKNode!, anUnsafePoint: UnsafeMutablePointer<ObjCBool>) -> Void {
+        if (aNode.position.y < 10) {aNode.position.y = self.screenHeight - 10}
+        if (aNode.position.y > (self.screenHeight - 10)) {aNode.position.y = 10}
+        if (aNode.position.x < 10) {aNode.position.y = self.screenWidth - 10}
+        if (aNode.position.x > (self.screenWidth - 10)) {aNode.position.x = 10}
+    }
+    
     override func update(currentTime: CFTimeInterval) {
-        enumerateChildNodesWithName("asteriodNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
-            if (aNode.position.y < 10) {aNode.position.y = self.screenHeight - 10}
-            if (aNode.position.y > (self.screenHeight - 10)) {aNode.position.y = 10}
-            if (aNode.position.x < 10) {aNode.position.y = self.screenWidth - 10}
-            if (aNode.position.x > (self.screenWidth - 10)) {aNode.position.x = 10}
-            
-        })
+        enumerateChildNodesWithName("asteriodNode", usingBlock: checkIfHeadingOffscreen)
 }
 }
 

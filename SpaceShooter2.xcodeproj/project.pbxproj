@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9600F3451ACF800E00D8AECB /* GameObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9600F3441ACF800E00D8AECB /* GameObjectNode.swift */; };
 		9692F56C1ACE1E2400252B59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692F56B1ACE1E2400252B59 /* AppDelegate.swift */; };
 		9692F56E1ACE1E2400252B59 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9692F56D1ACE1E2400252B59 /* GameScene.sks */; };
 		9692F5701ACE1E2400252B59 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692F56F1ACE1E2400252B59 /* GameScene.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9600F3441ACF800E00D8AECB /* GameObjectNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObjectNode.swift; sourceTree = "<group>"; };
 		9692F5661ACE1E2400252B59 /* SpaceShooter2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceShooter2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9692F56A1ACE1E2400252B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9692F56B1ACE1E2400252B59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				9692F56B1ACE1E2400252B59 /* AppDelegate.swift */,
 				9692F56D1ACE1E2400252B59 /* GameScene.sks */,
+				9600F3441ACF800E00D8AECB /* GameObjectNode.swift */,
 				9692F56F1ACE1E2400252B59 /* GameScene.swift */,
 				9692F5711ACE1E2400252B59 /* GameViewController.swift */,
 				9692F5731ACE1E2400252B59 /* Main.storyboard */,
@@ -221,6 +224,7 @@
 			files = (
 				9692F5701ACE1E2400252B59 /* GameScene.swift in Sources */,
 				9692F5721ACE1E2400252B59 /* GameViewController.swift in Sources */,
+				9600F3451ACF800E00D8AECB /* GameObjectNode.swift in Sources */,
 				9692F56C1ACE1E2400252B59 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +419,7 @@
 				9692F58B1ACE1E2400252B59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9692F58C1ACE1E2400252B59 /* Build configuration list for PBXNativeTarget "SpaceShooter2Tests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +428,7 @@
 				9692F58E1ACE1E2400252B59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
