@@ -46,6 +46,13 @@ class GameScene: SKScene {
     
     override func update(currentTime: CFTimeInterval) {
         enumerateChildNodesWithName("asteriodNode", usingBlock: checkIfHeadingOffscreen)
+        enumerateChildNodesWithName("asteriodNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
+            let safeNode = aNode as SKSpriteNode
+            if (safeNode.physicsBody?.linearDamping != 0){
+                safeNode.physicsBody?.linearDamping = 0
+            }
+        }) 
+// TODO why do my sprites slow down??
 }
 }
 
