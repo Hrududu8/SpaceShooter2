@@ -31,8 +31,9 @@ class GameScene: SKScene {
         
             enumerateChildNodesWithName("asteriodNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
                 let safeNode = aNode as SKSpriteNode
-                safeNode.physicsBody?.velocity.dx = self.randomCGFloat(0.0, max: 100)
-                safeNode.physicsBody?.velocity.dy = self.randomCGFloat(0.0, max: 100)
+                safeNode.physicsBody?.velocity.dx = self.randomCGFloat(0.0, max: 200) - 100
+                safeNode.physicsBody?.velocity.dy = self.randomCGFloat(0.0, max: 200) - 100
+                safeNode.physicsBody?.restitution = 0.2
             })
             
         
@@ -40,19 +41,19 @@ class GameScene: SKScene {
     func checkIfHeadingOffscreen(aNode: SKNode!, anUnsafePoint: UnsafeMutablePointer<ObjCBool>) -> Void {
         if (aNode.position.y < 10) {aNode.position.y = self.screenHeight - 10}
         if (aNode.position.y > (self.screenHeight - 10)) {aNode.position.y = 10}
-        if (aNode.position.x < 10) {aNode.position.y = self.screenWidth - 10}
+        if (aNode.position.x < 10) {aNode.position.x = self.screenWidth - 10}
         if (aNode.position.x > (self.screenWidth - 10)) {aNode.position.x = 10}
     }
     
     override func update(currentTime: CFTimeInterval) {
-        enumerateChildNodesWithName("asteriodNode", usingBlock: checkIfHeadingOffscreen)
+        enumerateChildNodesWithName("//*", usingBlock: checkIfHeadingOffscreen)
         enumerateChildNodesWithName("asteriodNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
             let safeNode = aNode as SKSpriteNode
             if (safeNode.physicsBody?.linearDamping != 0){
                 safeNode.physicsBody?.linearDamping = 0
             }
         }) 
-// TODO why do my sprites slow down??
-}
+
+    }
 }
 
