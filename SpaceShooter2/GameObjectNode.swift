@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 import SpriteKit
 
-class GameObjectNode: SKNode {
+/*class GameObjectNode: SKNode {
     var shouldDelete : Bool = false
+    
+    
     func collisionWithPlayer(player: SKNode) -> Bool {
         return false
     }
@@ -35,7 +37,10 @@ class asteriodNode: GameObjectNode {
             if (self.physicsBody?.angularVelocity == 0) {
                 self.physicsBody?.angularVelocity = 50
             }
-                }
+         }
+    override init(aCoder: coder){
+        
+    }
     
     
     override func nodeName()->String{
@@ -43,7 +48,7 @@ class asteriodNode: GameObjectNode {
     }
 }
 
-
+*/
 
 
 
