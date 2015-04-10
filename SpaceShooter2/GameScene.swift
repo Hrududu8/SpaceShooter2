@@ -34,21 +34,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //let location = touch.locationInNode(self)
         }
         
-            enumerateChildNodesWithName("asteriodNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
-                let safeNode = aNode as! SKSpriteNode
-                safeNode.physicsBody?.velocity.dx = self.randomCGFloat(0.0, max: 200) - 100
-                safeNode.physicsBody?.velocity.dy = self.randomCGFloat(0.0, max: 200) - 100
-                safeNode.physicsBody?.restitution = 0.2
-                safeNode.physicsBody?.categoryBitMask = 1
-            })
-            enumerateChildNodesWithName("shipNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
-                let safeNode = aNode as! SKSpriteNode
-                safeNode.physicsBody?.velocity.dx =  self.randomCGFloat(0.0, max: 200) - 100 
-                safeNode.physicsBody?.velocity.dy = self.randomCGFloat(0.0, max: 200) - 100
-                safeNode.physicsBody?.restitution = 0.2
-                safeNode.physicsBody?.contactTestBitMask = 3
-            })
-       }
+        enumerateChildNodesWithName("asteriodNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
+            let safeNode = aNode as! SKSpriteNode
+            safeNode.physicsBody?.velocity.dx = self.randomCGFloat(0.0, max: 200) - 100
+            safeNode.physicsBody?.velocity.dy = self.randomCGFloat(0.0, max: 200) - 100
+            safeNode.physicsBody?.restitution = 0.2
+            safeNode.physicsBody?.categoryBitMask = 1
+        })
+        enumerateChildNodesWithName("shipNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
+            let safeNode = aNode as! SKSpriteNode
+            safeNode.physicsBody?.velocity.dx =  self.randomCGFloat(0.0, max: 200) - 100
+            safeNode.physicsBody?.velocity.dy = self.randomCGFloat(0.0, max: 200) - 100
+            safeNode.physicsBody?.restitution = 0.2
+            safeNode.physicsBody?.contactTestBitMask = 3
+        })
+        
+        let node = childNodeWithName("scoreLabelNode")
+        if let safeNode = node as? SKLabelNode {
+            println("safeNode.alpha = \(safeNode.alpha)")
+            
+        }
+    }
     func checkIfHeadingOffscreen(aNode: SKNode!, anUnsafePoint: UnsafeMutablePointer<ObjCBool>) -> Void {
         if (aNode.position.y < 10) {aNode.position.y = self.screenHeight - 10}
         if (aNode.position.y > (self.screenHeight - 10)) {aNode.position.y = 10}
@@ -67,7 +73,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     }
     func didBeginContact(contact: SKPhysicsContact){
-        println("boom")
+        let asteriod = (contact.bodyA.node!.name == "asteriodNode") ? contact.bodyA : contact.bodyB
+        shipHealth -= Int(asteriod.mass)
+        println("ship healt = \(shipHealth)")
     }
 }
 
