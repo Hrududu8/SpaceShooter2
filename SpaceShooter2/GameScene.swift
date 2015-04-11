@@ -21,19 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func didMoveToView(view: SKView) {
-            physicsWorld.contactDelegate = self
-    }
-    
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-     
-        /* Called when a touch begins
-        the code should moved to init or didMoveToView becuase now it runs everytime there's a touch
-        */
-        
-        for touch: AnyObject in touches {
-            //let location = touch.locationInNode(self)
-        }
-        
+        physicsWorld.contactDelegate = self
         enumerateChildNodesWithName("asteriodNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
             let safeNode = aNode as! SKSpriteNode
             safeNode.physicsBody?.velocity.dx = self.randomCGFloat(0.0, max: 200) - 100
@@ -48,11 +36,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             safeNode.physicsBody?.restitution = 0.2
             safeNode.physicsBody?.contactTestBitMask = 3
         })
-        
         let node = childNodeWithName("scoreLabelNode")
         if let safeNode = node as? SKLabelNode {
             println("safeNode.alpha = \(safeNode.alpha)")
             
+        }
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+     
+        /* Called when a touch begins
+        the code should moved to init or didMoveToView becuase now it runs everytime there's a touch
+        */
+        
+        for touch: AnyObject in touches {
+            let location = touch.locationInNode(self)
+            let nodes = nodesAtPoint(location)
+            let rotate = SKAction.rotateByAngle(0.34, duration: 0.5)
+            let rotateShip = SKAction.runAction(rotate, onChildWithName: "shipNode")
+            //TODO change this from an enumearate ChildNodesWithName: using Block to something better
+            enumerateChildNodesWithName("*Button", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
+                self.runAction(rotateShip)
+        })
         }
     }
     func checkIfHeadingOffscreen(aNode: SKNode!, anUnsafePoint: UnsafeMutablePointer<ObjCBool>) -> Void {
