@@ -13,20 +13,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let screenWidth = UIScreen.mainScreen().bounds.size.width
     let screenHeight = UIScreen.mainScreen().bounds.size.height
     
-    let scoreLabelNode = SKLabelNode()
+    var scoreLabelNode = SKLabelNode()
     var shipHealth = 100
     
     required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
-        scoreLabelNode.position = CGPoint(x: 40, y: 40)
-        scoreLabelNode.name = "shello"
-        scoreLabelNode.fontColor = SKColor.whiteColor()
-        scoreLabelNode.fontSize = 30
-        scoreLabelNode.zPosition = 30 
-        scoreLabelNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
-        scoreLabelNode.text = "hello world"
-        addChild(scoreLabelNode)
+
         
+//        scoreLabelNode.position = CGPoint(x: 40, y: 40)
+//        scoreLabelNode.name = "shello"
+//        scoreLabelNode.fontColor = SKColor.whiteColor()
+//        scoreLabelNode.fontSize = 30
+//        scoreLabelNode.zPosition = 30 
+//        scoreLabelNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
+//        scoreLabelNode.text = "hello world"
+//        addChild(scoreLabelNode)
+//        
     }
     
         func randomCGFloat(min: CGFloat, max: CGFloat)->CGFloat{
@@ -52,6 +54,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             safeNode.physicsBody?.restitution = 0.2
             safeNode.physicsBody?.contactTestBitMask = 3
         })
+        scoreLabelNode = childNodeWithName("scoreLabelNode") as! SKLabelNode
+
         
     }
     
@@ -86,8 +90,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     
     override func update(currentTime: CFTimeInterval) {
-        enumerateChildNodesWithName("//*", usingBlock: checkIfHeadingOffscreen)  // why is this line of code moving my labels?????
-        enumerateChildNodesWithName("//*", usingBlock: spriteDebug)
+        enumerateChildNodesWithName("asteriodNode", usingBlock: checkIfHeadingOffscreen)  // why is this line of code moving my labels?????
+        enumerateChildNodesWithName("shipNode", usingBlock: checkIfHeadingOffscreen)
         enumerateChildNodesWithName("asteriodNode", usingBlock: { (aNode : SKNode!, anUnsafePointer : UnsafeMutablePointer<ObjCBool>) -> Void in
             let safeNode = aNode as! SKSpriteNode
             if (safeNode.physicsBody?.linearDamping != 0){
@@ -99,7 +103,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact){
         let asteriod = (contact.bodyA.node!.name == "asteriodNode") ? contact.bodyA : contact.bodyB
         shipHealth -= Int(asteriod.mass)
-        println("ship healt = \(shipHealth)")
+        scoreLabelNode.text = "\(shipHealth)"
+        println("\(shipHealth)")
     }
 }
 
