@@ -15,23 +15,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var scoreLabelNode = SKLabelNode()
     var shipHealth = 100
+    var leftArrowButton = SKNode()
     
     required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
-
-        
-//        scoreLabelNode.position = CGPoint(x: 40, y: 40)
-//        scoreLabelNode.name = "shello"
-//        scoreLabelNode.fontColor = SKColor.whiteColor()
-//        scoreLabelNode.fontSize = 30
-//        scoreLabelNode.zPosition = 30 
-//        scoreLabelNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
-//        scoreLabelNode.text = "hello world"
-//        addChild(scoreLabelNode)
-//        
     }
     
-        func randomCGFloat(min: CGFloat, max: CGFloat)->CGFloat{
+    func randomCGFloat(min: CGFloat, max: CGFloat)->CGFloat{
         return CGFloat(arc4random()) % max - min
     }
     
@@ -55,6 +45,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             safeNode.physicsBody?.contactTestBitMask = 3
         })
         scoreLabelNode = childNodeWithName("scoreLabelNode") as! SKLabelNode
+        leftArrowButton = childNodeWithName("leftArrowButton")!
+        //leftArrowButton.userInteractionEnabled = true
 
         
     }
@@ -67,11 +59,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         */
         let rotate = SKAction.rotateByAngle(0.34, duration: 0.5)
         let rotateShip = SKAction.runAction(rotate, onChildWithName: "shipNode")
-        let buttonParentNode = childNodeWithName("buttonParentNode")
-        let leftArrowButton = buttonParentNode!.childNodeWithName("leftArrowButton")
         for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            if (leftArrowButton!.containsPoint(location)){ //TODO:  fix this so it recognizes when the touches are in the box
+            let touchLocation = touch.locationInNode(self)
+            let touchedNode = self.nodeAtPoint(touchLocation)
+            if (touchedNode == leftArrowButton){
                 self.runAction(rotateShip)
             }
         }
