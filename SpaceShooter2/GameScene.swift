@@ -16,6 +16,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabelNode = SKLabelNode()
     var shipHealth = 100
     var leftArrowButton = SKNode()
+    var fireButton = SKNode()
+    var shipNode = SKSpriteNode()
     
     required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
@@ -46,7 +48,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         })
         scoreLabelNode = childNodeWithName("scoreLabelNode") as! SKLabelNode
         leftArrowButton = childNodeWithName("leftArrowButton")!
-        //leftArrowButton.userInteractionEnabled = true
+        fireButton = childNodeWithName("fireButton")!
+        shipNode = childNodeWithName("shipNode") as! SKSpriteNode
 
         
     }
@@ -65,6 +68,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if (touchedNode == leftArrowButton){
                 self.runAction(rotateShip)
             }
+            if (touchedNode == fireButton){
+                let laserBeam = SKSpriteNode(imageNamed: "laserBeam")
+                laserBeam.position = shipNode.position
+                
+                self.addChild(laserBeam)
+                println("fire")
+            }
         }
     }
     func checkIfHeadingOffscreen(aNode: SKNode!, anUnsafePoint: UnsafeMutablePointer<ObjCBool>) -> Void {
@@ -73,12 +83,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (aNode.position.x < 10) {aNode.position.x = self.screenWidth - 10}
         if (aNode.position.x > (self.screenWidth - 10)) {aNode.position.x = 10}
     }
-    
-    func spriteDebug(aNode: SKNode!, anUnsafePointer: UnsafeMutablePointer<ObjCBool>)->Void {
-        println("--\(aNode.name) at zPosition \(aNode.zPosition)")
-        }
-        
-        
     
     override func update(currentTime: CFTimeInterval) {
         enumerateChildNodesWithName("asteriodNode", usingBlock: checkIfHeadingOffscreen)  // why is this line of code moving my labels?????
