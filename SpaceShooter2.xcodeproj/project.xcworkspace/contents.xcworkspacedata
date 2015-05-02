@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <Group
-      location = "container:"
-      name = "Permissions">
-   </Group>
-   <FileRef
-      location = "group:Screen Shot 2015-04-23 at 9.05.07 PM.png">
-   </FileRef>
    <FileRef
       location = "self:SpaceShooter2.xcodeproj">
    </FileRef>

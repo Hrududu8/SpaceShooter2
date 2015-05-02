@@ -16,10 +16,20 @@
 		9692F5771ACE1E2400252B59 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9692F5761ACE1E2400252B59 /* Images.xcassets */; };
 		9692F57A1ACE1E2400252B59 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9692F5781ACE1E2400252B59 /* LaunchScreen.xib */; };
 		9692F5861ACE1E2400252B59 /* SpaceShooter2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692F5851ACE1E2400252B59 /* SpaceShooter2Tests.swift */; };
+		96EBB8CA1AEF148700A5D6EE /* SpaceShooter2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9692F5851ACE1E2400252B59 /* SpaceShooter2Tests.swift */; };
+		96EBB8CC1AF1BE7200A5D6EE /* NewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EBB8CB1AF1BE7200A5D6EE /* NewTests.swift */; };
+		96EBB8D61AF1BEE800A5D6EE /* NewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EBB8D51AF1BEE800A5D6EE /* NewerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		9692F5801ACE1E2400252B59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9692F55E1ACE1E2400252B59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9692F5651ACE1E2400252B59;
+			remoteInfo = SpaceShooter2;
+		};
+		96EBB8D71AF1BEE800A5D6EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9692F55E1ACE1E2400252B59 /* Project object */;
 			proxyType = 1;
@@ -42,6 +52,10 @@
 		9692F57F1ACE1E2400252B59 /* SpaceShooter2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceShooter2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9692F5841ACE1E2400252B59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9692F5851ACE1E2400252B59 /* SpaceShooter2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShooter2Tests.swift; sourceTree = "<group>"; };
+		96EBB8CB1AF1BE7200A5D6EE /* NewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTests.swift; sourceTree = "<group>"; };
+		96EBB8D11AF1BEE800A5D6EE /* NewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96EBB8D41AF1BEE800A5D6EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96EBB8D51AF1BEE800A5D6EE /* NewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +73,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		96EBB8CE1AF1BEE800A5D6EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -67,6 +88,7 @@
 			children = (
 				9692F5681ACE1E2400252B59 /* SpaceShooter2 */,
 				9692F5821ACE1E2400252B59 /* SpaceShooter2Tests */,
+				96EBB8D21AF1BEE800A5D6EE /* NewerTests */,
 				9692F5671ACE1E2400252B59 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +98,7 @@
 			children = (
 				9692F5661ACE1E2400252B59 /* SpaceShooter2.app */,
 				9692F57F1ACE1E2400252B59 /* SpaceShooter2Tests.xctest */,
+				96EBB8D11AF1BEE800A5D6EE /* NewerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +130,7 @@
 		9692F5821ACE1E2400252B59 /* SpaceShooter2Tests */ = {
 			isa = PBXGroup;
 			children = (
+				96EBB8CB1AF1BE7200A5D6EE /* NewTests.swift */,
 				9692F5851ACE1E2400252B59 /* SpaceShooter2Tests.swift */,
 				9692F5831ACE1E2400252B59 /* Supporting Files */,
 			);
@@ -117,6 +141,23 @@
 			isa = PBXGroup;
 			children = (
 				9692F5841ACE1E2400252B59 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		96EBB8D21AF1BEE800A5D6EE /* NewerTests */ = {
+			isa = PBXGroup;
+			children = (
+				96EBB8D51AF1BEE800A5D6EE /* NewerTests.swift */,
+				96EBB8D31AF1BEE800A5D6EE /* Supporting Files */,
+			);
+			path = NewerTests;
+			sourceTree = "<group>";
+		};
+		96EBB8D31AF1BEE800A5D6EE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				96EBB8D41AF1BEE800A5D6EE /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -159,6 +200,24 @@
 			productReference = 9692F57F1ACE1E2400252B59 /* SpaceShooter2Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		96EBB8D01AF1BEE800A5D6EE /* NewerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96EBB8D91AF1BEE800A5D6EE /* Build configuration list for PBXNativeTarget "NewerTests" */;
+			buildPhases = (
+				96EBB8CD1AF1BEE800A5D6EE /* Sources */,
+				96EBB8CE1AF1BEE800A5D6EE /* Frameworks */,
+				96EBB8CF1AF1BEE800A5D6EE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96EBB8D81AF1BEE800A5D6EE /* PBXTargetDependency */,
+			);
+			name = NewerTests;
+			productName = NewerTests;
+			productReference = 96EBB8D11AF1BEE800A5D6EE /* NewerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -173,6 +232,10 @@
 					};
 					9692F57E1ACE1E2400252B59 = {
 						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 9692F5651ACE1E2400252B59;
+					};
+					96EBB8D01AF1BEE800A5D6EE = {
+						CreatedOnToolsVersion = 6.3.1;
 						TestTargetID = 9692F5651ACE1E2400252B59;
 					};
 				};
@@ -192,6 +255,7 @@
 			targets = (
 				9692F5651ACE1E2400252B59 /* SpaceShooter2 */,
 				9692F57E1ACE1E2400252B59 /* SpaceShooter2Tests */,
+				96EBB8D01AF1BEE800A5D6EE /* NewerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,6 +279,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		96EBB8CF1AF1BEE800A5D6EE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -226,6 +297,7 @@
 				9692F5721ACE1E2400252B59 /* GameViewController.swift in Sources */,
 				9600F3451ACF800E00D8AECB /* GameObjectNode.swift in Sources */,
 				9692F56C1ACE1E2400252B59 /* AppDelegate.swift in Sources */,
+				96EBB8CA1AEF148700A5D6EE /* SpaceShooter2Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +305,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96EBB8CC1AF1BE7200A5D6EE /* NewTests.swift in Sources */,
 				9692F5861ACE1E2400252B59 /* SpaceShooter2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96EBB8CD1AF1BEE800A5D6EE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96EBB8D61AF1BEE800A5D6EE /* NewerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +325,11 @@
 			isa = PBXTargetDependency;
 			target = 9692F5651ACE1E2400252B59 /* SpaceShooter2 */;
 			targetProxy = 9692F5801ACE1E2400252B59 /* PBXContainerItemProxy */;
+		};
+		96EBB8D81AF1BEE800A5D6EE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9692F5651ACE1E2400252B59 /* SpaceShooter2 */;
+			targetProxy = 96EBB8D71AF1BEE800A5D6EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -400,6 +486,46 @@
 			};
 			name = Release;
 		};
+		96EBB8DA1AF1BEE800A5D6EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NewerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceShooter2.app/SpaceShooter2";
+			};
+			name = Debug;
+		};
+		96EBB8DB1AF1BEE800A5D6EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = NewerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceShooter2.app/SpaceShooter2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -429,6 +555,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		96EBB8D91AF1BEE800A5D6EE /* Build configuration list for PBXNativeTarget "NewerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96EBB8DA1AF1BEE800A5D6EE /* Debug */,
+				96EBB8DB1AF1BEE800A5D6EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
